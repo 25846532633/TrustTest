@@ -1,0 +1,33 @@
+seed: 42 
+
+data:
+  dataset: basicmotions   # or "synthetic"
+synthetic:
+  n_samples: 600
+  seq_len: 60
+  n_vars: 8
+  n_classes: 3
+  noise_std: 0.2
+
+cluster_k: 3 # 聚类数
+
+embedding:
+  # 变量名的语义线索（可选；你的真实数据如果有变量名会更有用）
+  use_name_tfidf: true # 是否使用变量名TF-IDF
+
+  # 用于“变量聚类”的变量级特征：从该变量在全体训练样本上的序列行为提取
+  # 你后面做论文可以扩展更多（频域特征/互信息/Granger等）
+  stats: ["mean", "std", "min", "max", "slope", "acf1", "domfreq"] # 统计层面的向量
+  # stats: []
+
+prompt:
+  # 为了避免 prompt 太长：每个变量只展示最近 last_k 个点 + 若干统计
+  last_k: 6 # 最近last_k个点
+
+runner:
+  mode: hf_instruct
+  hf_model: Qwen/Qwen2.5-0.5B-Instruct
+  device: auto
+  max_new_tokens: 16
+  temperature: 0.0
+

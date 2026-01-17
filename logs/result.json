@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "data": {
+    "n_samples": 600,
+    "seq_len": 60,
+    "n_vars": 8,
+    "n_classes": 3,
+    "noise_std": 0.2
+  },
+  "cluster_k": 3,
+  "clusters": {
+    "1": [
+      "var_0",
+      "var_1",
+      "var_2"
+    ],
+    "2": [
+      "var_3",
+      "var_4"
+    ],
+    "0": [
+      "var_5",
+      "var_6",
+      "var_7"
+    ]
+  },
+  "flat_acc": 1.0,
+  "hier_acc": 1.0,
+  "mode": "sklearn",  
+  "prompt_last_k": 6
+}
